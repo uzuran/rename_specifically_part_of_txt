@@ -14,6 +14,8 @@ class MainApplication(tk.Frame):
 
         # Main title.
         parent.title('JW 2000')
+        label_for_rename_table = Label(self, text="JW 2000", font="Arial")
+        label_for_rename_table.pack()
 
         # Label.
         label_for_rename_table = Label(self, text="Add files and rename material to correct format.")
