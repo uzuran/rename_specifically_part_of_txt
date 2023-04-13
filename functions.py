@@ -12,7 +12,7 @@ def rename_to_nc(file_paths):
 
 
 def browse_files():
-    file_paths = filedialog.askopenfilenames(filetypes=[("Nc files", "*.NC")])
+    file_paths = filedialog.askopenfilenames(initialdir="X:/", title="Select a File", filetypes=[("Nc files", "*.NC")])
 
     # Select path and rename it with .txt format.
     for file_path in file_paths:
@@ -58,7 +58,7 @@ def make_correct_format_for_table(new_file_name):
 
 
 def browse_files_add_mh():
-    file_paths = filedialog.askopenfilenames(filetypes=[("Nc files", "*.NC")])
+    file_paths = filedialog.askopenfilenames(initialdir="X:/", title="Select a File", filetypes=[("Nc files", "*.NC")])
 
     # Select path and rename it with .txt format.
     for file_path in file_paths:
@@ -94,7 +94,7 @@ def make_correct_format_for_table_mh(new_file_name):
 
 
 def browse_files_add_pm():
-    file_paths = filedialog.askopenfilenames(filetypes=[("Nc files", "*.NC")])
+    file_paths = filedialog.askopenfilenames(initialdir="X:/", title="Select a File", filetypes=[("Nc files", "*.NC")])
 
     # Select path and rename it with .txt format.
     for file_path in file_paths:
