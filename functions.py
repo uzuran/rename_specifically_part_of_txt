@@ -77,7 +77,10 @@ def make_correct_format_for_table_mh(new_file_name):
             list_of_mh = ["M"]
 
             if char_list[5] in list_of_mh:
-                msg.showwarning(message="MH already EXIST!")
+                msg.showwarning(title="MH format already exist.", message="MH already EXIST!")
+
+            elif char_list[17] == "-":
+                msg.showwarning(title="PM format already exist.", message="You have PM format here already.")
 
             else:
 
@@ -113,7 +116,10 @@ def make_correct_format_for_table_pm(new_file_name):
             list_of_pm = ["-"]
 
             if char_list[17] in list_of_pm:
-                msg.showwarning(message="PM already EXIST!")
+                msg.showwarning(title="PM format already exist.", message="PM already EXIST!")
+
+            elif char_list[5] == "M":
+                msg.showwarning(title="MH format already exist.", message="You have MH type of table here.")
 
             else:
 
