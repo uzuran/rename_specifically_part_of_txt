@@ -70,22 +70,37 @@ def browse_files_add_mh():
 
 
 def make_correct_format_for_table_mh(new_file_name):
-        with open(new_file_name, "r+") as f:
-            lines = f.readlines()
-            fourth_line = lines[25]
-            char_list = list(fourth_line)
-            list_of_mh = ["M"]
+    with open(new_file_name, "r+") as f:
+        lines = f.readlines()
+        line_24 = lines[24]
+        line_23 = lines[23]
+        line_25 = lines[25]
+        list_from_line_24 = list(line_24)
+        list_from_line_25 = list(line_25)
+        list_of_mh = ["M"]
 
-            if char_list[5] in list_of_mh:
-                msg.showwarning(title="MH format already exist.", message="MH already EXIST!")
-
-            elif char_list[17] == "-":
-                msg.showwarning(title="PM format already exist.", message="You have PM format here already.")
-
+        if len(line_23) == 1:
+            if list_from_line_24[5] in list_of_mh:
+                msg.showwarning(title="MH format already exists.", message="MH already EXISTS!")
+            elif list_from_line_24[18] == "-":
+                msg.showwarning(title="PM format already exists.", message="You have PM format here already.")
             else:
-
-                char_list = list(fourth_line)
-                new_char_list = char_list[:5] + ['M', 'H', '-'] + char_list[5:]
+                new_char_list = list_from_line_24[:5] + ['M', 'H', '-'] + list_from_line_24[5:]
+                updated_line = ''.join(new_char_list)
+                lines[24] = updated_line
+                f.seek(0)
+                f.writelines(lines)
+                f.close()
+                success = tk.Label(text="Success add MH", fg="green")
+                success.pack()
+                success.after(5000, success.destroy)
+        elif len(line_24) == 1:
+            if list_from_line_25[5] in list_of_mh:
+                msg.showwarning(title="MH format already exists.", message="MH already EXISTS!")
+            elif list_from_line_25[18] == "-":
+                msg.showwarning(title="PM format already exists.", message="You have PM format here already.")
+            else:
+                new_char_list = list_from_line_25[:5] + ['M', 'H', '-'] + list_from_line_25[5:]
                 updated_line = ''.join(new_char_list)
                 lines[25] = updated_line
                 f.seek(0)
@@ -109,22 +124,36 @@ def browse_files_add_pm():
 
 
 def make_correct_format_for_table_pm(new_file_name):
-        with open(new_file_name, "r+") as f:
-            lines = f.readlines()
-            fourth_line = lines[25]
-            char_list = list(fourth_line)
-            list_of_pm = ["-"]
+    with open(new_file_name, "r+") as f:
+        lines = f.readlines()
+        line_24 = lines[24]
+        line_23 = lines[23]
+        line_25 = lines[25]
+        list_from_line_24 = list(line_24)
+        list_from_line_25 = list(line_25)
 
-            if char_list[17] in list_of_pm:
-                msg.showwarning(title="PM format already exist.", message="PM already EXIST!")
-
-            elif char_list[5] == "M":
-                msg.showwarning(title="MH format already exist.", message="You have MH type of table here.")
-
+        if len(line_23) == 1:
+            if list_from_line_24[5] == "M":
+                msg.showwarning(title="MH format already exists.", message="MH already EXISTS!")
+            elif list_from_line_24[18] == "-":
+                msg.showwarning(title="PM format already exists.", message="You have PM format here already.")
             else:
-
-                char_list = list(fourth_line)
-                new_char_list = char_list[:17] + ['-', 'P', 'M'] + char_list[17:]
+                new_char_list = list_from_line_24[:18] + ['-', 'P', 'M'] + list_from_line_24[18:]
+                updated_line = ''.join(new_char_list)
+                lines[24] = updated_line
+                f.seek(0)
+                f.writelines(lines)
+                f.close()
+                success = tk.Label(text="Success add PM", fg="green")
+                success.pack()
+                success.after(5000, success.destroy)
+        elif len(line_24) == 1:
+            if list_from_line_25[5] == "M":
+                msg.showwarning(title="MH format already exists.", message="MH already EXISTS!")
+            elif list_from_line_25[18] == "-":
+                msg.showwarning(title="PM format already exists.", message="You have PM format here already.")
+            else:
+                new_char_list = list_from_line_25[:18] + ['-', 'P', 'M'] + list_from_line_25[18:]
                 updated_line = ''.join(new_char_list)
                 lines[25] = updated_line
                 f.seek(0)
@@ -133,5 +162,4 @@ def make_correct_format_for_table_pm(new_file_name):
                 success = tk.Label(text="Success add PM", fg="green")
                 success.pack()
                 success.after(5000, success.destroy)
-
 
