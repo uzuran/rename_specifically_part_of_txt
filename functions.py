@@ -30,7 +30,8 @@ def make_correct_format_for_table(new_file_name):
         fourth_line = lines[3]
 
         list_of_material = ["-1.0", "-2.0", "-3.0", "-4.0", "-5.0", "-6.0", "-8.0", "-10.0", "-12.0", "-15.0",
-                            "-20.0", "-22.0"]
+                            "-20.0", "-22.0", "1.0", "2.0", "3.0", "4.0", "5.0", "6.0", "8.0", "10.0", "12.0", "15.0",
+                            "20.0", "22.0"]
         if fourth_line[10:13] in list_of_material:
             char_list = list(fourth_line)
             del char_list[10:13]
